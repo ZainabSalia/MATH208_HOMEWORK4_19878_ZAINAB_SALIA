@@ -1,0 +1,12 @@
+import math
+
+n = 150
+p = 0.06
+mean = n * p
+std_dev = math.sqrt(n * p * (1 - p))
+x = 12
+z = (x - mean) / std_dev
+prob = 1 - 0.5 * (1 + math.erf(z / math.sqrt(2)))
+
+print(f"The probability of 12 or more defective batteries in a sample of 150 batteries is approximately {prob:.2%}.")
+
