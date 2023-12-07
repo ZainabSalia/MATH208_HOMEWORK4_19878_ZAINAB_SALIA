@@ -1,0 +1,17 @@
+import numpy as np
+
+def verify_mean_std(n, p):
+  mean = n * p
+  std = np.sqrt(n * p * (1 - p))
+
+   binomial_distribution = np.random.binomial(n, p, 100000)
+  sample_mean = np.mean(binomial_distribution)
+  sample_std = np.std(binomial_distribution)
+
+    return np.isclose(sample_mean, mean) and np.isclose(sample_std, std)
+
+p = 0.05
+
+for n in range(51, 101):
+  result = verify_mean_std(n, p)
+  print(f"n = {n}: {result}")
