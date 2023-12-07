@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom, norm
+
+n = 12
+p = 0.5
+
+if n * p > 5 and n * (1 - p) > 5:
+     bi_dis = binom(n, p)
+   
+    mean = n * p
+    std_dev = np.sqrt(n * p * (1 - p))
+    norm_dis = norm(mean, std_dev)
+   
+    fig, ax = plt.subplots()
+    x = np.arange(0, n + 1)
+    ax.bar(x, bi_dis.pmf(x), label='Binomial Distribution')
+    ax.plot(x, norm_dis.pdf(x), label='Normal Distribution')
+    ax.legend()
+    ax.set_xlabel('Number of Successes')
+    ax.set_ylabel('Probability')
+    ax.set_title('Binomial vs. Normal Distribution')
+    plt.show()
+else:
+    print('The approximation does not hold for the given values of n and p.')
