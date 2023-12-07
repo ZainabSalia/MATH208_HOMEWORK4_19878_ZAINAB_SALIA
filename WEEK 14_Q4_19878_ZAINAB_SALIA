@@ -1,0 +1,18 @@
+import numpy as np
+from scipy import stats
+n = 100  
+p = 0.6  
+binomial_probs = stats.binom.pmf(range(n + 1), n, p)
+mean = n * p
+std_dev = np.sqrt(n * p * (1 - p))
+normal_dist = stats.norm(mean, std_dev)
+normal_probs = normal_dist.pdf(range(n + 1))
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 6))
+plt.bar(range(n + 1), binomial_probs, alpha=0.5, label="Binomial Distribution")
+plt.plot(range(n + 1), normal_probs, label="Normal Distribution")
+plt.xlabel("Number of successes")
+plt.ylabel("Probability")
+plt.title("Comparison of Binomial and Normal Distributions (n = {}, p = {})".format(n, p))
+plt.legend()
+plt.show()
