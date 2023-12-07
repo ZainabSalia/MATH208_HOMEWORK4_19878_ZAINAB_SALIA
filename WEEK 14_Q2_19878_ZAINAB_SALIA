@@ -1,0 +1,39 @@
+import numpy as np
+
+mean1 = 10
+sigma1 = 3
+mean2 = 15
+sigma2 = 8
+
+#mean and standard deviation of the sum of the two normal distributions
+mean_sum = mean1 + mean2
+sigma_sum = np.sqrt(sigma1**2 + sigma2**2)
+
+# mean and standard deviation of the difference of the two normal distributions
+mean_diff = mean1 - mean2
+sigma_diff = np.sqrt(sigma1**2 + sigma2**2)
+
+#mean and standard deviation of 3 times the first normal distribution
+mean_three_times_x = 3 * mean1
+sigma_three_times_x = 3 * sigma1
+
+#mean and standard deviation of 4 times the first normal distribution plus 5 times the second normal distribution
+mean_four_x_plus_five_y = 4 * mean1 + 5 * mean2
+sigma_four_x_plus_five_y = np.sqrt(16 * sigma1**2 + 25 * sigma2**2)
+
+
+print("Sum of the two normal distributions:")
+print("Mean:", mean_sum)
+print("Standard deviation:", sigma_sum)
+
+print("Difference of the two normal distributions:")
+print("Mean:", mean_diff)
+print("Standard deviation:", sigma_diff)
+
+print("3 times the first normal distribution:")
+print("Mean:", mean_three_times_x)
+print("Standard deviation:", sigma_three_times_x)
+
+print("4 times the first normal distribution plus 5 times the second normal distribution:")
+print("Mean:", mean_four_x_plus_five_y)
+print("Standard deviation:", sigma_four_x_plus_five_y)
