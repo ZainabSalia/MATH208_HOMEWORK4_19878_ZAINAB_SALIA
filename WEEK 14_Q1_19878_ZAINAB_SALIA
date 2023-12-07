@@ -1,0 +1,17 @@
+import numpy as np
+import scipy.stats as stats
+
+mean = 10.3
+std = 0.65
+
+#percentage of anchovies with lengths less than 9cm
+percentage_less_than_9cm = stats.norm.cdf(9, mean, std) * 100
+print("The percentage of anchovies with lengths less than 9cm is:", percentage_less_than_9cm, "%")
+
+#percentage of anchovies with lengths between 9.5cm and 10.6cm
+percentage_between_9_5_and_10_6 = stats.norm.cdf(10.6, mean, std) - stats.norm.cdf(9.5, mean, std) * 100
+print("The percentage of anchovies with lengths between 9.5cm and 10.6cm is:", percentage_between_9_5_and_10_6, "%")
+
+#minimum length if a restaurant claimed that the lengths of the sold anchovies are in the top 20%
+top_20_percentile = stats.norm.ppf(0.8, mean, std)
+print("The minimum length if a restaurant claimed that the lengths of the sold anchovies are in the top 20% is:", top_20_percentile, "cm")
