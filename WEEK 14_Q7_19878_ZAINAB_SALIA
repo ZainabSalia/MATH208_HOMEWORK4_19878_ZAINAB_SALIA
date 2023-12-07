@@ -1,0 +1,26 @@
+import numpy as np
+import scipy.stats as stats
+
+
+t_dist = stats.t(df=10)
+t_samples = t_dist.rvs(100)
+mean = np.mean(t_samples)
+std = np.std(t_samples)
+
+sampling_groups = []
+
+for i in range(15):
+    samples = np.random.choice(t_samples, size=30)
+    sampling_groups.append(samples)
+group_means = np.array([np.mean(group) for group in sampling_groups])
+overall_mean = np.mean(group_means)
+print(f"Overall mean: {overall_mean}")
+print(f"Mean of 100 random numbers: {mean}")
+
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.hist(group_means)
+ax.set_xlabel("Group mean")
+ax.set_ylabel("Number of groups")
+ax.set_title("Histogram of group means")
+plt.show()
